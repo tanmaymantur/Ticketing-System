@@ -8,16 +8,19 @@ const database = [
     email: "admin@company.com",
     password: "admin",
     role: "admin",
+    name: "admin",
   },
   {
     email: "tech@company.com",
     password: "tech",
     role: "tech",
+    name: "tech",
   },
   {
     email: "user@company.com",
     password: "user",
     role: "user",
+    name: "user",
   },
 ];
 
@@ -48,7 +51,8 @@ function LoginPage() {
       return;
     }
     const role = userData.role;
-    dispatch(login({ role }));
+    const user = userData;
+    dispatch(login({ user, role }));
     setError("");
     setFormData({
       name: "",
