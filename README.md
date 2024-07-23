@@ -40,3 +40,5 @@
     c. Admin
         1. able to assign/change tech support to ticket (Dummy feature)
         2. able to close/resolve the ticket
+
+    d. Negative testing is also done , try accessing /tickets without logging in

@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import TicketItem from "./TicketItem";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Modal from "./Modal";
+import { logout } from "../redux/authSlice";
 
 const dataTickets = [
   {
@@ -52,6 +53,7 @@ const Tickets = () => {
   const [isEditable, setIsEditable] = useState(true);
   const navigate = useNavigate();
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (!isAuthenticated) {
@@ -61,23 +63,24 @@ const Tickets = () => {
 
   const user = useSelector((state) => state.auth.user);
   let sampleTickets;
-  if (user.role === "user") {
+  if (user?.role === "user") {
     sampleTickets = dataTickets.filter(
       (ticket) => ticket.createdBy === user.name
     );
   }
-  if (user.role === "tech") {
+  if (user?.role === "tech") {
     sampleTickets = dataTickets.filter(
       (ticket) => ticket.assignedTo === user.name
     );
   }
-  if (user.role === "admin") {
+  if (user?.role === "admin") {
     sampleTickets = dataTickets;
   }
   const [tickets, setTickets] = useState(sampleTickets);
-
+  if (!isAuthenticated) {
+    return null;
+  }
   //Authenticated data mimicing api
-
   const addTickets = (ticket) => {
     const ticketExists = tickets.find((t) => t.id === ticket.id);
 
@@ -88,6 +91,11 @@ const Tickets = () => {
       // Add the new ticket
       setTickets([...tickets, ticket]);
     }
+  };
+
+  const handleLogout = () => {
+    dispatch(logout());
+    navigate("/");
   };
 
   return (
@@ -117,7 +125,7 @@ const Tickets = () => {
         </div>
         <div className="flex justify-end">
           <button
-            onClick={() => setIsOpen(true)}
+            onClick={handleLogout}
             className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded"
           >
             LogOut
