@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 
 function Modal(props) {
+  const generateId = () => Math.random().toString(36).substr(2, 9);
+
   const [isOpen, setIsOpen] = useState(false);
   const [isEditingTitle, setIsEditingTitle] = useState(props.isEditingTitle);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [assignedDropdownOpen, setAssignedDropdownOpen] = useState(false);
+  const [assignedValue, setAssignedValue] = useState(props.ticket.assignedTo);
   const [isEditingDescription, setIsEditingDescription] = useState(
     props.isEditingDescription
   );
@@ -19,14 +22,15 @@ function Modal(props) {
       newComment: "",
       newCommentFile: null,
       status: "open",
-      id: Date.now() + 1,
+      id: generateId(),
     }
   );
 
   const toggleDropdown = () => {
     setDropdownOpen(!dropdownOpen);
   };
-  const toggleAssignedDropdown = () => {
+  const toggleAssignedDropdown = (value) => {
+    setAssignedValue(value);
     setAssignedDropdownOpen(!assignedDropdownOpen);
   };
 
@@ -79,7 +83,7 @@ function Modal(props) {
   };
 
   const handleStatusChange = (status) => {
-    toggleAssignedDropdown();
+    toggleDropdown();
     setTicket({ ...ticket, status: status });
   };
 
@@ -109,10 +113,10 @@ function Modal(props) {
                 className="mx-6 bg-blue-600 hover:bg-blue-900 text-white px-3 py-1 rounded focus:outline-none"
                 onClick={(e) => {
                   e.stopPropagation();
-                  toggleAssignedDropdown();
+                  toggleAssignedDropdown(assignedValue);
                 }}
               >
-                <p>{ticket.assignedTo}</p>
+                <p>{assignedValue}</p>
               </button>
             )}
             <button
@@ -153,19 +157,19 @@ function Modal(props) {
                 <ul>
                   <li
                     className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
-                    onClick={() => handleStatusChange("Open")}
+                    onClick={() => toggleAssignedDropdown("tech")}
                   >
                     tech
                   </li>
                   <li
                     className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
-                    onClick={() => handleStatusChange("In Progress")}
+                    onClick={() => toggleAssignedDropdown("tech1")}
                   >
                     tech1
                   </li>
                   <li
                     className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
-                    onClick={() => handleStatusChange("Closed")}
+                    onClick={() => toggleAssignedDropdown("tech2")}
                   >
                     tech2
                   </li>

@@ -5,9 +5,11 @@ import { useNavigate } from "react-router-dom";
 import Modal from "./Modal";
 import { logout } from "../redux/authSlice";
 
+const generateId = () => Math.random().toString(36).substr(2, 9);
+
 const dataTickets = [
   {
-    id: Date.now(),
+    id: generateId(),
     title: "Headphone issue",
     description: "Headphone unclear sound",
     comments: [
@@ -20,7 +22,7 @@ const dataTickets = [
     assignedTo: "tech",
   },
   {
-    id: Date.now(),
+    id: generateId(),
     title: "Network issue",
     description: "Network goes down",
     comments: [
@@ -33,7 +35,7 @@ const dataTickets = [
     assignedTo: "tech",
   },
   {
-    id: Date.now(),
+    id: generateId(),
     title: "Network issue",
     description: "Network goes down",
     comments: [
