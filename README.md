@@ -1,70 +1,42 @@
-# Getting Started with Create React App
+## Project Overview
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+    -This project is demo project that mimics the ticketing system accurately -
+    -Front end project - React, Router , Redux , Tailwind - Instead of backend, states and staic data is used
+    -This project is created from scratch no part is copied from online github repos of ticketing system
+    -The flow chart diagram is included
 
-## Available Scripts
+# Getting started
 
-In the project directory, you can run:
+    - clone the repo
+    - pull latest changes
+    - in terminal execute command npm i
+    - in terminal execute command npm start
 
-### `npm start`
+# Credentials
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+    1. user
+        email: user@company.com
+        password: user
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+    2. tech
+        email : tech@company.com
+        password : tech
 
-### `npm test`
+    3. Admin
+        email : admin@company.com
+        password : admin
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Testing
 
-### `npm run build`
+    a.End user:
+        1. End user is able to login and register (stored in state)
+        2. create a ticket (with optional file attachment) , add comment
+        3. able to change status of ticket
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+    b.Tech Support:
+        1. able to answer any assigned ticket with a file attachment
+        2. tech role does not have access to create ticket or edit
+        3. able to mark as close/resolve ticket
+    c. Admin
+        1. able to assign/change tech support to ticket (Dummy feature)
+        2. able to close/resolve the ticket

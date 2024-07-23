@@ -79,7 +79,7 @@ function Modal(props) {
   };
 
   const handleStatusChange = (status) => {
-    toggleDropdown();
+    toggleAssignedDropdown();
     setTicket({ ...ticket, status: status });
   };
 

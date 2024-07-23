@@ -103,7 +103,7 @@ const Tickets = () => {
           </button>
         )}
       </header>
-      <div className="h-[80vh] bg-slate-200 p-6 rounded-lg shadow-lg m-5">
+      <div className="h-[80vh] bg-slate-200 p-6 rounded-lg shadow-lg m-5 flex flex-col justify-between">
         <div className="space-y-5">
           {tickets.map((ticket) => (
             <TicketItem
@@ -114,6 +114,14 @@ const Tickets = () => {
               role={user.role}
             />
           ))}
+        </div>
+        <div className="flex justify-end">
+          <button
+            onClick={() => setIsOpen(true)}
+            className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded"
+          >
+            LogOut
+          </button>
         </div>
       </div>
       {isOpen && (

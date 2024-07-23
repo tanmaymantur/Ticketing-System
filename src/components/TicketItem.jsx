@@ -21,7 +21,7 @@ function TicketItem(props) {
         <div className="flex justify-between items-center">
           <span className="text-lg font-medium">{props.ticket.title}</span>
           <div className="relative">
-            <button className="bg-blue-600 text-white px-3 py-1 rounded focus:outline-none">
+            <button className="bg-blue-700 text-white px-3 py-1 rounded focus:outline-none">
               <p>{props.ticket.status}</p>
             </button>
           </div>
