@@ -7,7 +7,9 @@ function Modal(props) {
   const [isEditingTitle, setIsEditingTitle] = useState(props.isEditingTitle);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [assignedDropdownOpen, setAssignedDropdownOpen] = useState(false);
-  const [assignedValue, setAssignedValue] = useState(props.ticket.assignedTo);
+  const [assignedValue, setAssignedValue] = useState(
+    props.ticket?.assignedTo || "Assign to"
+  );
   const [isEditingDescription, setIsEditingDescription] = useState(
     props.isEditingDescription
   );
@@ -23,6 +25,7 @@ function Modal(props) {
       newCommentFile: null,
       status: "open",
       id: generateId(),
+      assignedTo: null,
     }
   );
 
@@ -31,6 +34,7 @@ function Modal(props) {
   };
   const toggleAssignedDropdown = (value) => {
     setAssignedValue(value);
+    setTicket({ ...ticket, assignedTo: value });
     setAssignedDropdownOpen(!assignedDropdownOpen);
   };
 
